@@ -11,6 +11,7 @@ import { UsuarioProvider } from '../providers/usuario/usuario';
 import { HomePage, CarritoPage, CategoriasPage, LoginPage, OrdenesPage, OrdenesDetallePage, PorCategoriasPage, ProductoPage, TabsPage } from '../pages/index.paginas';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ImagenPipe } from '../pipes/imagen/imagen';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ImagenPipe } from '../pipes/imagen/imagen';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
