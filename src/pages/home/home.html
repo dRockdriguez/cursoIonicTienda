@@ -10,8 +10,8 @@
   <ion-grid>
 
     <ion-row *ngFor="let pares of productoService.productos">
-      <ion-col *ngFor="let item of pares">
-        <img src="http://localhost/rest/public/img/productos/{{item.codigo}}.jpg">
+      <ion-col *ngFor="let item of pares" [navParams]="{ producto: item }" [navPush] ="productoPage">
+        <img [src]="item.codigo | imagen">
         <p>
           {{ item.producto }}
           <br>

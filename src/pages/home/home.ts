@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ProductosProvider } from '../../providers/index.services';
+import { ProductoPage } from '../producto/producto';
 
 @Component({
   selector: 'page-home',
@@ -8,6 +9,7 @@ import { ProductosProvider } from '../../providers/index.services';
 })
 export class HomePage {
   blockInfiniteScroll: boolean = true;
+  productoPage = ProductoPage;
 
   constructor(
     public navCtrl: NavController,

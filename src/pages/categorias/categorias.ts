@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ProductosProvider } from '../../providers/index.services';
+import { PorCategoriasPage } from '../por-categorias/por-categorias';
 
 @Component({
   selector: 'page-categorias',
   templateUrl: 'categorias.html',
 })
 export class CategoriasPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  porCategorias = PorCategoriasPage;
+  
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public productosService: ProductosProvider
+  ) {
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CategoriasPage');
-  }
-
 }
