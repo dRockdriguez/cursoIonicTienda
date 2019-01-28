@@ -4,7 +4,7 @@
       TiendCar
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="carritoService.verCarrito()">
         <ion-icon name="cart"></ion-icon>
         <ion-badge *ngIf="carritoService.items.length > 0" color="danger" class="carrito-numero">{{ carritoService.items.length }}</ion-badge>
       </button>
