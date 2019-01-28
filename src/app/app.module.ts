@@ -9,20 +9,39 @@ import { HomePage } from '../pages/home/home';
 import { CarritoProvider } from '../providers/carrito/carrito';
 import { ProductosProvider } from '../providers/productos/productos';
 import { UsuarioProvider } from '../providers/usuario/usuario';
+import { CarritoPage, CategoriasPage, LoginPage, OrdenesPage, OrdenesDetallePage, PorCategoriasPage, ProductoPage, TabsPage } from '../pages/index.paginas';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    CarritoPage,
+    CategoriasPage,
+    LoginPage,
+    OrdenesPage,
+    OrdenesDetallePage,
+    PorCategoriasPage,
+    ProductoPage,
+    TabsPage 
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    CarritoPage,
+    CategoriasPage,
+    LoginPage,
+    OrdenesPage,
+    OrdenesDetallePage,
+    PorCategoriasPage,
+    ProductoPage,
+    TabsPage 
   ],
   providers: [
     StatusBar,
@@ -30,7 +49,8 @@ import { UsuarioProvider } from '../providers/usuario/usuario';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CarritoProvider,
     ProductosProvider,
-    UsuarioProvider
+    UsuarioProvider,
+    HttpClient
   ]
 })
 export class AppModule {}
