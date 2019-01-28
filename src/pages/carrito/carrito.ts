@@ -6,12 +6,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'carrito.html',
 })
 export class CarritoPage {
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CarritoPage');
   }
+  
 
 }

@@ -19,7 +19,7 @@
       <br>
       <strong>{{ producto.proveedor }}</strong>
     </p>
-    <button ion-button block icon-left>
+    <button ion-button block icon-left (click)="carritoService.addCarrito(producto)">
       <ion-icon name="cart">
         Añadir al carrito
       </ion-icon>
