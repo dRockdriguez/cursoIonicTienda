@@ -8,7 +8,7 @@ import { MyApp } from './app.component';
 import { CarritoProvider } from '../providers/carrito/carrito';
 import { ProductosProvider } from '../providers/productos/productos';
 import { UsuarioProvider } from '../providers/usuario/usuario';
-import { HomePage, CarritoPage, CategoriasPage, LoginPage, OrdenesPage, OrdenesDetallePage, PorCategoriasPage, ProductoPage, TabsPage } from '../pages/index.paginas';
+import { HomePage, CarritoPage, CategoriasPage, LoginPage, OrdenesPage, OrdenesDetallePage, PorCategoriasPage, ProductoPage, TabsPage, BuscadorPage } from '../pages/index.paginas';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ImagenPipe } from '../pipes/imagen/imagen';
 import { IonicStorageModule } from '@ionic/storage';
@@ -25,7 +25,7 @@ import { IonicStorageModule } from '@ionic/storage';
     OrdenesDetallePage,
     PorCategoriasPage,
     ProductoPage,
-    TabsPage 
+    TabsPage,BuscadorPage 
   ],
   imports: [
     BrowserModule,
@@ -44,7 +44,8 @@ import { IonicStorageModule } from '@ionic/storage';
     OrdenesDetallePage,
     PorCategoriasPage,
     ProductoPage,
-    TabsPage 
+    TabsPage,
+    BuscadorPage
   ],
   providers: [
     StatusBar,

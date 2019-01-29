@@ -1,16 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { URL_SERVICIOS } from '../../config/url.servicios';
+import { AlertController } from 'ionic-angular';
 
 @Injectable()
 export class ProductosProvider {
   pagina: number = 0;
-  productos: any [] = [];
-  lineas: any [] = [];
-  productosPorCategoria: any [] = [];
+  productos: any[] = [];
+  lineas: any[] = [];
+  productosPorCategoria: any[] = [];
+  productosPorBuscador: any[] = [];
   paginaCategoria: number = 0;
   categoriaAnt: any;
-  constructor(public http: HttpClient) {
+  constructor(
+    public http: HttpClient,
+    public alertCtrl: AlertController
+  ) {
     this.cargarTodos();
     this.cargarLineas();
   }
@@ -23,7 +28,7 @@ export class ProductosProvider {
         if (!res.error) {
           let n = this.agrupar(res.productos, 2);
           this.productos.push(...n);
-          this.pagina ++;
+          this.pagina++;
           if (res.productos.length === 0) {
             resolve(false);
           } else {
@@ -33,11 +38,11 @@ export class ProductosProvider {
           reject();
         }
       });
-  
+
     });
   }
 
-  cargarLineas(){
+  cargarLineas() {
     let url = URL_SERVICIOS + 'lineas';
     this.http.get(url).subscribe((res: any) => {
       if (!res.error) {
@@ -60,7 +65,7 @@ export class ProductosProvider {
       this.http.get(url).subscribe((res: any) => {
         if (!res.error) {
           this.productosPorCategoria.push(...res.productos);
-          this.paginaCategoria ++;
+          this.paginaCategoria++;
           if (res.productos.length === 0) {
             resolve(false);
           } else {
@@ -70,18 +75,34 @@ export class ProductosProvider {
           reject();
         }
       });
-  
+
     });
   }
 
-  private agrupar(arr: any, tam: number){
+  private agrupar(arr: any, tam: number) {
     let arrNuevo = [];
 
     for (let i = 0; i < arr.length; i += tam) {
-      arrNuevo.push(arr.slice(i, i+tam));
+      arrNuevo.push(arr.slice(i, i + tam));
     }
 
     return arrNuevo;
+  }
+
+  cargarBuscador(term: string) {
+    let url = URL_SERVICIOS + 'productos/buscar/' + term;
+    this.productosPorBuscador = [];
+    this.http.get(url).subscribe((res: any) => {
+      if (res.error) {
+        this.alertCtrl.create({
+          title: 'Error',
+          subTitle: 'Error al buscar',
+          buttons: ['OK']
+        }).present();
+      } else {
+        this.productosPorBuscador = res.productos;
+      }
+    });
   }
 
 }

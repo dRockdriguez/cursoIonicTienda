@@ -1,0 +1,15 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Buscador</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-list>
+      <ion-item *ngFor="let item of productosService.productosPorBuscador" [navPush]="productoPage" [navParams]="{ producto: item }">
+        {{ item.producto }}
+      </ion-item>
+    </ion-list>
+</ion-content>
