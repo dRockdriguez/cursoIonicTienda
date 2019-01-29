@@ -50,7 +50,6 @@ export class ProductosProvider {
 
   cargarPorCategoria(categoria: number) {
     return new Promise((resolve, reject) => {
-      debugger;
       if (categoria !== this.categoriaAnt) {
         this.paginaCategoria = 0;
         this.categoriaAnt = categoria;
