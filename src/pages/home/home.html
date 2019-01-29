@@ -1,5 +1,12 @@
 <ion-header>
   <ion-navbar>
+
+    <ion-buttons *ngIf="usuarioService.activo()">
+      <button ion-button (click)="usuarioService.cerrarSesion()">
+        Salir
+      </button>
+    </ion-buttons>
+
     <ion-title>
       TiendCar
     </ion-title>

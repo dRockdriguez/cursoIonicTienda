@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ProductosProvider, CarritoProvider } from '../../providers/index.services';
+import { ProductosProvider, CarritoProvider, UsuarioProvider } from '../../providers/index.services';
 import { ProductoPage } from '../producto/producto';
 
 @Component({
@@ -14,10 +14,13 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     private productoService: ProductosProvider,
+    public usuarioService: UsuarioProvider,
     private carritoService: CarritoProvider
-    ) {
-
+  ) {
+        
   }
+
+
 
   siguientePagina(e){
     this.productoService.cargarTodos().then((mas: boolean) => {
